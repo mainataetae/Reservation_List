@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 128);
-            $table->string('email', 254)->unique();
-            $table->datetime('email_verified_at')->nullable();
-            $table->string('password', 255);
-            $table->rememberToken();
+            $table->string('customer_name',128)->comment('患者様名');
+            $table->string('staff_name',128)->comment('担当スタッフ名');
+            $table->date('reservation_date')->comment('予約日');
+            $table->string('reservation_time')->comment('予約時間');
+            $table->text('memo')->nullable()->comment('メモ');
             $table->datetime('created_at')->useCurrent();
             $table->datetime('updated_at')->useCurrent()->useCurrentOnUpdate();
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('reservations');
     }
 };
