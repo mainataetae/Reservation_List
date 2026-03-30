@@ -16,7 +16,7 @@ class ReservationRegisterPostRequest extends FormRequest
         return [
             'customer_name' => ['required','max:128'],
             'staff_name' => ['required'],
-            'reservation_date' => ['required'],
+            'reservation_date' => ['required','date'],
             'reservation_time' => ['required'],
             'memo' => ['max:1000'],
         ];

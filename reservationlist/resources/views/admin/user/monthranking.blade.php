@@ -3,16 +3,22 @@
 {{-- メインコンテンツ --}}
 @section('contents')
 <div class="admin">
-    <h1>院一覧</h1>
+    <h1>{{ ($targetYear) }}年{{ ($targetMonth) }}月来院数</h1>
+    <div class="ranking-year">
+    <a href="{{ route('admin.user.monthranking', ['year' => $prevYear, 'month' => $prevMonth]) }}">←前月</a>
+    <a href="{{ route('admin.user.monthranking', ['year' => $nextYear, 'month' => $nextMonth]) }}">翌月→</a>
+    </div>
     <table class="admin-table">
         <tr>
-            <th>院ID</th>
+            <th>順位</th>
             <th>院名</th>
+            <th>来院数</th>
         </tr>
 @foreach($users as $user)
         <tr>
-            <td>{{ $user->id }}</td>
+            <td>{{ $loop->iteration }}位</td>
             <td>{{ $user->name }}</td>
+            <td>{{ $user->reservation_num }}</td>
         </tr>
 @endforeach
     </table>

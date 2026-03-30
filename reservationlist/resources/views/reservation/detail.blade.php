@@ -24,3 +24,4 @@
         <a href="{{ route('reservation.edit',['reservation_id' => $reservation->id]) }}">編集する</a> 
     </div>
 </div>
+@endsection

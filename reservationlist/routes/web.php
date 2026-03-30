@@ -53,6 +53,8 @@ Route::prefix('/admin')->group(function(){
         Route::get('/top',[AdminHomeController::class,'top'])->name('admin.top');
         Route::get('/logout',[AdminAuthController::class,'logout']);
         Route::get('/user/list',[AdminUserController::class,'list'])->name('admin.user.list');
+        Route::get('/user/monthranking',[AdminUserController::class,'monthranking'])->name('admin.user.monthranking');
+        Route::get('/user/yearranking',[AdminUserController::class,'yearranking'])->name('admin.user.yearranking');
     });
     //管理者登録
     Route::get('register',[AdminUserController::class,'index'])->name('admin.user.register');

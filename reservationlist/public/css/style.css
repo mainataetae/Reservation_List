@@ -64,23 +64,23 @@
     font-size: 30px;
 }
 
-.reserve-list{
-    display: flex;
-}
-
 .reserve-list h1{
-    border-bottom: 1px dotted gray;
+    width: 500px;
+    margin: 0 auto;
+    border-bottom: 2px dotted gray;
     font-size: 30px;
+    text-align: center;
 }
 
 .reserve-date{
     display:flex;
-    margin: 30px 50px;
+    justify-content: space-between;
     font-size: 18px;
+    margin: 12px;
 }
 
 .today-date{
-    color: #76356a;
+    color: #3b4940;
     font-weight: bold;
 }
 
@@ -105,7 +105,7 @@
 .list-time{
     width: 80px; 
     border: 1px solid #999;
-    background: rgb(255, 241, 234);
+    background: rgb(255, 251, 234);
 }
 
 .list-staff{
@@ -118,10 +118,11 @@
 
 .time-cell {
     text-align: center;
+    font-weight: 500;
     height: 60px;
     border: 1px solid #ddd;
     border: 1px solid #999;
-    background: rgb(255, 241, 234);
+    background: rgb(255, 251, 234);
 }
     
 .reserve-cell { 
@@ -145,4 +146,39 @@
 
 .cell-link:hover {
     background: #f3f4f6; 
+}
+
+.reserve-cell.status-1 { 
+    background-color: #d8e8f3 !important;
+}
+
+.reserve-cell.status-2 { 
+    background-color: #ffedd2 !important; 
+}
+
+.reserve-cell.status-3 {
+    background-color: #c9c6c6 !important; 
+}
+
+.admin-table{
+    border-collapse: collapse;
+    border:3px solid rgb(145, 145, 145);
+    width: 100%; 
+}
+
+.admin-table th, .admin-table td{
+    border: 1px solid gray;
+    padding:  10px 20px;
+    text-align: center;
+}
+
+.admin-table th{
+    border-bottom: 3px double gray;
+    background-color: #cfe0ec;
+}
+
+.ranking-year{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
 }

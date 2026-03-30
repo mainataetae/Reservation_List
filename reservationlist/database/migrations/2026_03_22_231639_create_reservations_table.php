@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('store_id')->comment('この予約管理表を所有する院名');
+            $table->foreign('store_id')->references('id')->on('users');
             $table->string('customer_name',128)->comment('患者様名');
+            $table->integer('status')->default(0)->comment('患者様の状態');
             $table->string('staff_name',128)->comment('担当スタッフ名');
             $table->date('reservation_date')->comment('予約日');
             $table->string('reservation_time')->comment('予約時間');

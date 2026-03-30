@@ -5,8 +5,8 @@
 <div class="reserve-list">
     <h1>予約管理表</h1>
     <div class="reserve-date">
-        <a href="{{ route('reservation.list', ['date' => $prevDate]) }}">←前日</a>  /
-        <div class="today-date"> {{ date('Y年m月d日', strtotime($targetDate)) }}</div>  /
+        <a href="{{ route('reservation.list', ['date' => $prevDate]) }}">←前日</a>
+        <div class="today-date"> < {{ date('Y年m月d日', strtotime($targetDate)) }} ></div>
         <a href="{{ route('reservation.list', ['date' => $nextDate]) }}">翌日→</a>
     </div>
 </div>
@@ -39,7 +39,7 @@
                 }
             @endphp
 
-            <td class="reserve-cell {{ $res ? 'is-reserved' : '' }}">
+            <td class="reserve-cell {{ $res ? 'is-reserved status-' . $res->status : '' }}">
                 <a href="{{ $url }}" class="cell-link">
                     {{ $res ? $res->customer_name : ' ' }} <!-- 予約があれば名前を表示 -->
                 </a>

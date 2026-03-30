@@ -33,6 +33,13 @@
             @endforeach
         </select><br>
         お客様名 : <input type="text" name="customer_name" value="{{ old('customer_name') ?? $reservation->customer_name }}" readonly><br>
+        状態 : 
+        <select name="status" class="status-select">
+        <option value="0" {{ (old('status') ?? $reservation->status) == 0 ? 'selected' : '' }}>予約</option>
+        <option value="1" {{ (old('status') ?? $reservation->status) == 1 ? 'selected' : '' }}>来院中</option>
+        <option value="2" {{ (old('status') ?? $reservation->status) == 2 ? 'selected' : '' }}>カウンセリング中</option>
+        <option value="3" {{ (old('status') ?? $reservation->status) == 3 ? 'selected' : '' }}>帰宅</option>
+        </select><br>
         備考欄 : <textarea name="memo">{{ old('memo',$reservation->memo) }}</textarea><br>
         <button onclick='return confirm("この予約を更新します。よろしいですか？");'>予約を更新する</button>
     </form>
