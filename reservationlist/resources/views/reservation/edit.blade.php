@@ -32,7 +32,7 @@
                 </option>
             @endforeach
         </select><br>
-        お客様名 : <input type="text" name="customer_name" value="{{ old('customer_name') ?? $reservation->customer_name }}" readonly><br>
+        患者様名 : <input type="text" name="customer_name" value="{{ old('customer_name') ?? $reservation->customer_name }}" readonly><br>
         状態 : 
         <select name="status" class="status-select">
         <option value="0" {{ (old('status') ?? $reservation->status) == 0 ? 'selected' : '' }}>予約</option>

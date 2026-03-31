@@ -17,7 +17,7 @@
         予約日 : <input type="date" name="reservation_date" id="reservation_date" value="{{ $selectedDate }}" required><br>
         予約時間 : <input type="text" name="reservation_time" value="{{ $selectedTime }}" readonly><br>
         担当スタッフ : <input type="text" name="staff_name" value="{{ $selectedStaff }}" readonly><br>
-        お客様名 : <input type="text" name="customer_name" value="{{ old('customer_name') }}" required><br>
+        患者様名 : <input type="text" name="customer_name" value="{{ old('customer_name') }}" required><br>
         備考欄 : <textarea name="memo">{{ old('memo') }}</textarea><br>
         @if(session('error_message'))
             {{-- 重複がある時のメッセージ表示と強制登録ボタン --}}

@@ -107,7 +107,7 @@ class ReservationController extends Controller
             '予約日' => $reservation->reservation_date,
             '時間' => $reservation->reservation_time,
             '担当スタッフ' => $reservation->staff_name,
-            'お客様名' => $reservation->customer_name . ' 様',
+            '患者様名' => $reservation->customer_name . ' 様',
             '備考・メモ' => $reservation->memo ?? 'なし',
         ];
         
