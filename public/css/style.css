@@ -1,0 +1,184 @@
+.login{
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border:1px solid gray;
+}
+
+.login h1{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid gray;
+}
+
+.reservation-detail{
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid gray;
+    border-radius: 12px; 
+}
+
+.reservation-detail h1{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+    border-bottom: 2px double gray;
+}
+
+.detail-item{
+    margin:10px 0px;
+    border-bottom: 1px dotted gray;
+    display: flex;
+    justify-content: space-between;
+}
+.detail-label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.detail-value{
+    font-size: 16px;
+    text-align: right;
+}
+
+.detail-update{
+    margin-top: 25px;
+    text-align: center;
+}
+
+.admin-top{
+    margin: 30px auto;
+    text-align: center;
+    border-bottom: 1px dotted gray;
+}
+
+.admin{
+    max-width: 300px;
+    margin: 30px auto;
+}
+
+.admin h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+.reserve-list h1{
+    width: 500px;
+    margin: 0 auto;
+    border-bottom: 2px dotted gray;
+    font-size: 30px;
+    text-align: center;
+}
+
+.reserve-date{
+    display:flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin: 12px;
+}
+
+.today-date{
+    color: #3b4940;
+    font-weight: bold;
+}
+
+.reserve-table{
+    width:100%; 
+    border-collapse: collapse; 
+    table-layout: fixed; 
+    border: 1px solid #999;
+}
+
+.reserve-table th {
+    border: 1px solid #999;
+    padding: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.list-head{
+    background: #eef2ff;
+}
+
+.list-time{
+    width: 80px; 
+    border: 1px solid #999;
+    background: rgb(255, 251, 234);
+}
+
+.list-staff{
+    background: #eef2ff;
+}
+
+.list-else{
+    background: #fff1f2;
+}
+
+.time-cell {
+    text-align: center;
+    font-weight: 500;
+    height: 60px;
+    border: 1px solid #ddd;
+    border: 1px solid #999;
+    background: rgb(255, 251, 234);
+}
+    
+.reserve-cell { 
+    border: 1px solid #ddd; 
+    padding: 0; 
+}
+
+.reserve-cell.is-reserved {
+    background: #ddd1e3; 
+}
+    
+.cell-link { 
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    min-height: 60px;
+    text-decoration: none; 
+    color: inherit; 
+    line-height: 60px;
+    }
+
+.cell-link:hover {
+    background: #f3f4f6; 
+}
+
+.reserve-cell.status-1 { 
+    background-color: #d8e8f3 !important;
+}
+
+.reserve-cell.status-2 { 
+    background-color: #ffedd2 !important; 
+}
+
+.reserve-cell.status-3 {
+    background-color: #c9c6c6 !important; 
+}
+
+.admin-table{
+    border-collapse: collapse;
+    border:3px solid rgb(145, 145, 145);
+    width: 100%; 
+}
+
+.admin-table th, .admin-table td{
+    border: 1px solid gray;
+    padding:  10px 20px;
+    text-align: center;
+}
+
+.admin-table th{
+    border-bottom: 3px double gray;
+    background-color: #cfe0ec;
+}
+
+.ranking-year{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
