@@ -1,66 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+=======
+# 予約管理システム（美容外科向け）
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## ■ アプリ概要
+美容外科の受付業務で使用する予約管理システムです。  
+カレンダー形式で予約を可視化し、予約の管理・確認を効率化することを目的として開発しました。
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ■ 作成背景
+現職の受付業務にて予約システムを操作する中で、「このシステムは裏側でどのように動いているのだろう？」と興味を持ったことが開発のきっかけです。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+普段はユーザーとして利用する側でしたが、学習を進める中で「単なるCRUD（増殖・読み取り・更新・削除）の練習に留まらず、実際の現場で即戦力となるようなアプリを作りたい」と考え、自身の経験を活かした予約管理システムをテーマに選びました。
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+具体的には、実務で感じていた以下の課題を解決することを目標としています。
+- 同姓同名の患者様の予約重複リスク
+- 院ごとの稼働状況の把握のしづらさ
 
-## Learning Laravel
+この開発を通じ、Laravelの基本機能（ルーティング、コントローラ、Blade、データベース操作など）の実装スキルを体系的に習得することを目指しました。
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ■ 主な機能
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### ① 予約管理機能
+- 予約の新規作成・編集・削除
+- カレンダー形式での予約表示
+- 時間×スタッフごとの予約状況の可視化
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### ② 重複チェック機能
+- 患者名を基準に既存予約を検索
+- 同じ名前の予約がある場合は警告を表示
+- 確認後、強制登録も可能
 
-### Premium Partners
+※実務上、同一患者が複数予約を持つケースがあるため、完全にブロックせずユーザー判断に委ねる設計にしています。
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+### ③ ステータス管理機能
+予約ごとに以下の状態を管理可能
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- 予約
+- 来院中
+- カウンセリング中
+- 帰宅
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### ④ 管理画面
+- 院一覧表示
+- 月・年別予約ランキング機能
 
-## Security Vulnerabilities
+#### 月・年別ランキング
+- 院ごとの予約数を集計
+- 予約数順でランキング表示
+- 管理者が各院の稼働状況を把握可能
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ■ 工夫した点
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- 実務課題をもとに、名前ベースの重複チェックを実装
+- 業務を止めないよう「強制登録」機能を追加
+- 予約データを整形し、カレンダー形式で視覚的に表示
+- 管理者視点で月・年別ランキングを実装し、データの可視化を実現
+
+---
+
+## ■ 苦労した点
+
+- カレンダー表示のためのデータ整形処理
+- 予約の有無による画面遷移の分岐処理
+- 月・年別の予約数ランキング実装
+
+---
+
+## ■ 使用技術
+- PHP 8.2 / Laravel 10
+- Blade
+- MariaDB
+
+---
+
+## ■ 今後の改善点
+- キャンセル管理機能
+- グラフによる予約数の可視化
+- UI/UXの改善
+
+---
+
+## ■ デモURL
+[ (HerokuURL) ](https://reservation-list-d4a0059d5804.herokuapp.com/)
+
+---
+
+## ■ GitHub
+[（リポジトリURL）](https://github.com/mainataetae/Reservation_List/blob/main/README.md)
