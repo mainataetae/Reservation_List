@@ -60,11 +60,14 @@ class UserController extends Controller
         
         $monthranking = UserModel::select($group_by_column)
                         ->selectRaw('count(reservations.id) AS reservation_num')
-                        ->leftjoin('reservations', 'users.id', '=', 'reservations.store_id')
-                        ->whereMonth('reservation_date', $targetMonth)
-                        ->whereYear('reservation_date', $targetYear)
+                        ->leftJoin('reservations', function($join) use ($targetMonth, $targetYear) {
+                            $join->on('users.id', '=', 'reservations.store_id')
+                            ->whereMonth('reservations.reservation_date', $targetMonth)
+                            ->whereYear('reservations.reservation_date', $targetYear);
+                           })
                         ->groupBy($group_by_column)
-                        ->orderBy('reservation_num','DESC')
+                        ->orderBy('reservation_num', 'DESC')
+                        ->orderBy('users.name','ASC')
                         ->paginate($per_page);
         
         return view('admin.user.monthranking',[
@@ -90,10 +93,13 @@ class UserController extends Controller
         
         $yearranking = UserModel::select($group_by_column)
                         ->selectRaw('count(reservations.id) AS reservation_num')
-                        ->leftjoin('reservations', 'users.id', '=', 'reservations.store_id')
-                        ->whereYear('reservation_date', $targetYear)
+                        ->leftJoin('reservations', function($join) use ($targetYear) {
+                            $join->on('users.id', '=', 'reservations.store_id')
+                            ->whereYear('reservations.reservation_date', $targetYear);
+                           })
                         ->groupBy($group_by_column)
-                        ->orderBy('reservation_num','DESC')
+                        ->orderBy('reservation_num', 'DESC')
+                        ->orderBy('users.name','ASC')
                         ->paginate($per_page);
         
         return view('admin.user.yearranking',[
