@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    //ログイン画面表示
     public function index()
     {
         return view('index');
     }
 
+    //ログイン処理
     public function login(LoginPostRequest $request)
     {
         $datum = $request->validated();

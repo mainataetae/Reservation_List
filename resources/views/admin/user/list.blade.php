@@ -18,20 +18,20 @@
     </table>
     <br>
         <!-- ページネーション -->
-         {{-- {{$user->links() }} --}}
         現在{{ $users->currentPage() }}ページ目<br>
+        {{-- {{$users->links() }} --}}
         @if($users->onFirstPage() === false)
         <a href="{{route('admin.user.list')}}">最初のページ</a>
         @else
         最初のページ
         @endif
         @if($users->previousPageUrl() !== null)
-        <a href="{{ $user->previousPageUrl() }}">前に戻る</a>
+        <a href="{{ $users->previousPageUrl() }}">前に戻る</a>
         @else
         前に戻る
         @endif
         @if($users->nextPageUrl() !== null)
-        <a href="{{ $user->nextPageUrl() }}">次に進む</a>
+        <a href="{{ $users->nextPageUrl() }}">次に進む</a>
         @else
         次に進む
         @endif

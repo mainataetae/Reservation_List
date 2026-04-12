@@ -12,10 +12,10 @@
         @endforeach
         </div>
     @endif
-    <form action="{{ route('reservation.edit_save',['reservation_id' => $reservation->id]) }}" method="post">
+    <form action="{{ route('reservation.edit_save',['reservation_id' => $reservation->id ]) }}" method="post">
         @csrf
         @method("PUT")
-        予約日 : <input type="date" name="reservation_date" id="reservation_date" value="{{ old('reservation_date') ?? $reservation->reservation_date }}" required><br>
+        予約日 : <input type="date" name="reservation_date" value="{{ old('reservation_date') ?? $reservation->reservation_date }}" required><br>
         予約時間 : 
         <select name="reservation_time" required>
             @foreach($hours as $hour)
@@ -45,7 +45,7 @@
     </form>
     <br>
     <div class="detail-update">
-        <a href="{{ route('reservation.list') }}">一覧へ戻る</a> /
+        <a href="{{ route('reservation.list', ['date' => $selectedDate]) }}">一覧へ戻る</a> /
         <a href="{{ route('reservation.detail',['reservation_id' => $reservation->id]) }}">詳細画面へ</a>
     </div>
 </div>

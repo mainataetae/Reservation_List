@@ -16,7 +16,7 @@
     @endif
     <form action="/login" method="post">
         @csrf
-        email : <input type="email" name="email" value="{{ old('email' ,'nara@example.com') }}"><br>
+        email : <input type="email" name="email" value="{{ old('email' ,'nara@gmail.com') }}"><br>
         パスワード : <input type="password" name="password"><br>
         (※デモ用パスワード：nara)<br>
         <button>ログインする</button>

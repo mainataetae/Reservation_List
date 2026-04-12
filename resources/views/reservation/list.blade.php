@@ -1,6 +1,6 @@
 @extends('layout')
 
-{{--- メインコンテンツ --}}
+{{-- メインコンテンツ --}}
 @section('contents')
 <div class="reserve-list">
     <h1>予約管理表</h1>
@@ -26,7 +26,7 @@
         <tr>
             <td class="time-cell">{{ $hour }}</td>
 
-            @foreach(array_merge($staffs, $elses) as $name)
+            @foreach($names as $name)
 
             @php
                 //予約があるかチェック
@@ -39,6 +39,7 @@
                 }
             @endphp
 
+            <!-- 予約状態によって色を変えるため、クラス名にステータス番号を結合 -->
             <td class="reserve-cell {{ $res ? 'is-reserved status-' . $res->status : '' }}">
                 <a href="{{ $url }}" class="cell-link">
                     {{ $res ? $res->customer_name : ' ' }} <!-- 予約があれば名前を表示 -->
