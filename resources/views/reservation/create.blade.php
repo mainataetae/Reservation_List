@@ -20,10 +20,16 @@
         患者様名 : <input type="text" name="customer_name" value="{{ old('customer_name') }}" required><br>
         備考欄 : <textarea name="memo">{{ old('memo') }}</textarea><br>
         @if(session('error_message'))
-            {{-- 重複がある時のメッセージ表示と強制登録ボタン --}}
-            {{ session('error_message') }}<br>
-            <button type="submit" name="action" value="force">登録する</button>
-        @else
+        {{-- メッセージの表示(重複時とシステムエラー) --}}
+            {{ session('error_message') }}
+            @if(str_contains(session('error_message'), '同じ名前'))
+                {{-- 重複がある時のメッセージ表示と強制登録ボタン --}}<br>
+                <button type="submit" name="action" value="force">登録する</button>
+            @else
+                {{-- 【システム故障時】戻るボタンのみを表示 --}}
+                <a href="{{ route('reservation.list', ['date' => $selectedDate]) }}">戻る</a>
+            @endif
+        @else    
             {{-- 重複がない時の通常登録ボタン --}}
             <button type="submit">予約を確定する</button>
         @endif

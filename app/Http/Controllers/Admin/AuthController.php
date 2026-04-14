@@ -16,19 +16,19 @@ class AuthController extends Controller
 
     public function login(AdminLoginPostRequest $request)
     {
-         $datum = $request->validated();
+        $datum = $request->validated();
 
-         //認証失敗
-         if(Auth::guard('admin')->attempt($datum) === false){
+        //認証失敗
+        if(Auth::guard('admin')->attempt($datum) === false){
             return back()
                 ->withInput()
                 ->withErrors(['auth' => 'ログインIDかパスワードに誤りがあります'])
                 ;
-         }
+        }
 
-         //認証成功
-         $request->session()->regenerate();
-         return redirect('/admin/top');
+        //認証成功
+        $request->session()->regenerate();
+        return redirect('/admin/top');
     }
 
     public function logout(Request $request)
